@@ -8,7 +8,7 @@ const path = require("path");
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: {
-        main: "./src/js/common.js"
+        main: "./src/js/intro.js",
     },
     output: {
         path: path.resolve("./dist"),
@@ -17,6 +17,7 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
+        hot: true
     },
     module: {
         rules: [

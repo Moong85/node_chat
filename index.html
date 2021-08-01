@@ -1,54 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <title>Socket</title>
     <link rel="stylesheet" href="src/css/common.css">
+    <link rel="stylesheet" href="src/css/intro.css">
+    <link rel="stylesheet" href="src/css/main.css">
 </head>
 <body>
-    <div class="popup">
-        <div class="container">
-            <div class="header">
-                Chat Test Login
+<!--    Intro      -->
+    <section class="intro-container">
+        <div class="contents">
+            <img class="icon logo" src="src/img/icon_logo.svg"/>
+            <div class="information">
+                <span>Welcome Node Chat</span>
+                <span>alpha.0.01v</span>
             </div>
-            <div class="contents">
-                <input class="user-id" />
-                <input class="user-age" />
-                <label>
-                    <input type="radio" name="user-gender"/> 남자
-                </label>
-                <label>
-                    <input type="radio" name="user-gender"/> 여자
-                </label>
+            <div class="liner"></div>
+            <div class="question who-are-you">
+                <span>who are you?</span>
+                <label><input type="text" maxlength="10" placeholder="닉네임 또는 이름" /></label>
+                <span class="error"></span>
+                <button class="submit">시작</button>
             </div>
-            <div class="footer">
-                <button>시작하기</button>
-            </div>
-        </div>
-    </div>
-    <section>
-        <div class="web-msg-container">
-            <ul>
-                <li>test Message!! 01</li>
-                <li>test Message!! 01</li>
-                <li>test Message!! 01</li>
-                <li>test Message!! 01</li>
-                <li>test Message!! 01</li>
-                <li>test Message!! 01</li>
-                <li>test Message!! 01</li>
-                <li>test Message!! 01</li>
-            </ul>
         </div>
     </section>
-    <section>
-        <div class="form-message">
-            <form>
-                <input type="text" id="user_message"/>
-                <button>Send</button>
-            </form>
+<!--    Main      -->
+    <section class="main-container">
+        <div class="contents">
+            <div class="list">
+                <div class="enemy">
+                    <i class="icon profile"></i>
+                    <div class="item">
+                        <span>user name</span>
+                        <span>Hi, thi is message...!</span>
+                        <span>00:13</span>
+                    </div>
+                </div>
+                <div class="my">
+                    <div class="item">
+                        <span>Oh... Hello!</span>
+                        <span>01:25</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <i class="icon profile"></i>
+            <label>
+                <input type="text" />
+            </label>
+            <button>
+                Send
+            </button>
         </div>
     </section>
-    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
-    <script src="src/js/common.js"></script>
 </body>
 </html>

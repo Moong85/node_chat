@@ -1,0 +1,22 @@
+section {
+  &.main-container {
+    width: 100%;
+    height: 100%;
+    > .contents {
+      height: calc(100vh - 3.66rem);
+    }
+    > .footer {
+      border-top: solid 1px #369fff;
+      padding: .833rem;
+      display: flex;
+      i {
+        background: url("../img/icon_logo.svg") center;
+        background-size: 100%;
+        width: 1.3rem;
+        height: 1.3rem;
+        display: inline-block;
+        margin: .33rem;
+      }
+    }
+  }
+}

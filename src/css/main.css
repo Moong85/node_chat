@@ -1,0 +1,22 @@
+section.main-container {
+  width: 100%;
+  height: 100%;
+}
+section.main-container > .contents {
+  height: calc(100vh - 3.66rem);
+}
+section.main-container > .footer {
+  border-top: solid 1px #369fff;
+  padding: 0.833rem;
+  display: flex;
+}
+section.main-container > .footer i {
+  background: url("../img/icon_logo.svg") center;
+  background-size: 100%;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: inline-block;
+  margin: 0.33rem;
+}
+
+/*# sourceMappingURL=main.css.map */
