@@ -1,0 +1,54 @@
+body, html, section.intro-container {
+  width: 100%;
+  height: 100%;
+}
+
+section.intro-container {
+  display: flex;
+  background: #fff;
+  z-index: 100;
+  transition: opacity ease 1s;
+}
+section.intro-container.close {
+  opacity: 0;
+  transition: opacity ease 1s;
+  pointer-events: none;
+}
+section.intro-container .contents {
+  margin: auto;
+  text-align: center;
+}
+section.intro-container .contents .icon.logo {
+  width: 5.33rem;
+  height: 5.33rem;
+}
+section.intro-container .contents > div span:first-child {
+  color: #000;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+section.intro-container .contents .information {
+  margin: 1.5rem auto 0.83rem auto;
+}
+section.intro-container .contents .information span:last-child {
+  color: #999;
+}
+section.intro-container .contents .information * {
+  display: block;
+}
+section.intro-container .contents .question > * {
+  display: block;
+  margin: 1rem auto;
+}
+section.intro-container .contents .question.who-are-you input {
+  width: 10.833rem;
+  text-align: center;
+}
+section.intro-container .contents .question.who-are-you .error {
+  display: none;
+}
+section.intro-container .contents .question button {
+  margin: auto;
+}
+
+/*# sourceMappingURL=intro.css.map */
