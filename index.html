@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socket</title>
+    <link rel="stylesheet" href="src/css/common.css">
+</head>
+<body>
+    <div class="popup">
+        <div class="container">
+            <div class="header">
+                Chat Test Login
+            </div>
+            <div class="contents">
+                <input class="user-id" />
+                <input class="user-age" />
+                <label>
+                    <input type="radio" name="user-gender"/> 남자
+                </label>
+                <label>
+                    <input type="radio" name="user-gender"/> 여자
+                </label>
+            </div>
+            <div class="footer">
+                <button>시작하기</button>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="web-msg-container">
+            <ul>
+                <li>test Message!! 01</li>
+                <li>test Message!! 01</li>
+                <li>test Message!! 01</li>
+                <li>test Message!! 01</li>
+                <li>test Message!! 01</li>
+                <li>test Message!! 01</li>
+                <li>test Message!! 01</li>
+                <li>test Message!! 01</li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <div class="form-message">
+            <form>
+                <input type="text" id="user_message"/>
+                <button>Send</button>
+            </form>
+        </div>
+    </section>
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+    <script src="src/js/common.js"></script>
+</body>
+</html>
