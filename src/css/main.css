@@ -5,18 +5,52 @@ section.main-container {
 section.main-container > .contents {
   height: calc(100vh - 3.66rem);
 }
+section.main-container > .contents > .list {
+  padding: 1.16rem;
+}
+section.main-container > .contents > .list > div {
+  display: flex;
+}
+section.main-container > .contents > .list > div.system span {
+  color: #ccc;
+  margin: auto;
+}
+section.main-container > .contents > .list > div.enemy .item span:first-child {
+  font-weight: bold;
+  line-height: 2rem;
+  color: #369fff;
+  display: block;
+}
+section.main-container > .contents > .list > div.enemy .item span:last-child {
+  font-size: 83.33%;
+  margin-left: 0.83rem;
+  color: #ccc;
+}
+section.main-container > .contents > .list > div.my .item {
+  margin: 0 0 0 auto;
+}
+section.main-container > .contents > .list > div.my .item span:first-child {
+  font-size: 83.33%;
+  margin-right: 0.83rem;
+  color: #ccc;
+}
+section.main-container > .contents > .list > div.my .item span:last-child {
+  color: #BD00FF;
+}
 section.main-container > .footer {
-  border-top: solid 1px #369fff;
+  border-top: solid 1px #ccc;
   padding: 0.833rem;
   display: flex;
 }
-section.main-container > .footer i {
-  background: url("../img/icon_logo.svg") center;
-  background-size: 100%;
-  width: 1.3rem;
-  height: 1.3rem;
-  display: inline-block;
-  margin: 0.33rem;
+section.main-container > .footer label {
+  width: calc(100% - 10em);
+  margin: 0 auto 0 1em;
+}
+section.main-container > .footer label input {
+  width: 100%;
+  background: #fff;
+  border-bottom: solid 1px #686868;
+  outline: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

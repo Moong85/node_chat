@@ -4,18 +4,60 @@ section {
     height: 100%;
     > .contents {
       height: calc(100vh - 3.66rem);
+      > .list {
+        padding: 1.16rem;
+        > div {
+          display: flex;
+          &.system {
+            span {
+              color: #ccc;
+              margin: auto;
+            }
+          }
+          &.enemy {
+            .item {
+              span:first-child {
+                font-weight: bold;
+                line-height: 2rem;
+                color: #369fff;
+                display: block;
+              }
+              span:last-child {
+                font-size: 83.33%;
+                margin-left: 0.83rem;
+                color: #ccc;
+              }
+            }
+          }
+          &.my {
+            .item {
+              margin: 0 0 0 auto;
+              span:first-child {
+                font-size: 83.33%;
+                margin-right: 0.83rem;
+                color: #ccc;
+              }
+              span:last-child {
+                color: #BD00FF;
+              }
+            }
+          }
+        }
+      }
     }
     > .footer {
-      border-top: solid 1px #369fff;
+      border-top: solid 1px #ccc;
       padding: .833rem;
       display: flex;
-      i {
-        background: url("../img/icon_logo.svg") center;
-        background-size: 100%;
-        width: 1.3rem;
-        height: 1.3rem;
-        display: inline-block;
-        margin: .33rem;
+      label {
+        width: calc(100% - 10em);
+        margin: 0 auto 0 1em;
+        input {
+          width: 100%;
+          background: #fff;
+          border-bottom: solid 1px #686868;
+          outline: 0;
+        }
       }
     }
   }
