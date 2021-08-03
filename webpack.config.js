@@ -8,7 +8,7 @@ const path = require("path");
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: {
-        main: "./src/js/intro.js",
+        main: "./src/js/clientManager.js",
     },
     output: {
         path: path.resolve("./dist"),
