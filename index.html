@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Socket</title>
     <link rel="stylesheet" href="src/css/common.css">
-    <link rel="stylesheet" href="src/css/intro.css">
-    <link rel="stylesheet" href="src/css/main.css">
 </head>
 <body>
 <!--    Intro      -->
@@ -27,14 +25,27 @@
     </section>
 <!--    Main      -->
     <div class="menu">
-        <div class="toggle">menu</div>
+        <div class="toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="user-info">
+            <div class="profile">
+                <i class="icon profile"></i>
+            </div>
+            <div>
+                <span>userName</span>
+            </div>
+        </div>
+        <div class="liner white"></div>
         <ul>
             <li data-target="logout">Logout</li>
         </ul>
     </div>
     <section class="main-container">
         <div class="contents">
-            <div class="list">
+            <div class="chat-list">
                 <div class="system">
                     <span>'Front-end Developer'님이 접속하셨습니다.</span>
                 </div>
@@ -59,9 +70,7 @@
             <label>
                 <input type="text" />
             </label>
-            <button>
-                Send
-            </button>
+            <button>Send</button>
         </div>
     </section>
 </body>

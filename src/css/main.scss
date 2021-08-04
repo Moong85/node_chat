@@ -1,45 +1,3 @@
-.menu {
-  width: 8rem;
-  height: 100%;
-  position: fixed;
-  right: -8rem;
-  z-index: 10;
-  transition: right ease .5s;
-  cursor: pointer;
-  &.open {
-    right: 0rem;
-    transition: right ease .5s;
-    & + section.main-container {
-      transition: width ease .5s;
-      width: calc(100% - 8rem);
-    }
-  }
-  .toggle {
-    position: absolute;
-    right: 8rem;
-    padding: .3rem 1rem;
-    background: #369fff;
-    color: #fff;
-    border-radius: 0 0 0 10px;
-  }
-  ul {
-    width: 100%;
-    height: 100%;
-    background: #369fff;
-    display: block;
-    color: #fff;
-    li {
-      width: 100%;
-      padding: .5rem 1rem;
-      cursor: pointer;
-      &:hover {
-        filter: brightness(120%);
-        border-bottom: solid 1px #fff;
-      }
-    }
-  }
-}
-
 section {
   &.main-container {
     width: 100%;
@@ -47,46 +5,6 @@ section {
     transition: width ease .5s;
     > .contents {
       height: calc(100vh - 3.66rem);
-      > .list {
-        padding: 1.16rem;
-        > div {
-          display: flex;
-          &.system {
-            span {
-              color: #ccc;
-              margin: auto;
-            }
-          }
-          &.enemy {
-            .item {
-              span:first-child {
-                font-weight: bold;
-                line-height: 2rem;
-                color: #369fff;
-                display: block;
-              }
-              span:last-child {
-                font-size: 83.33%;
-                margin-left: 0.83rem;
-                color: #ccc;
-              }
-            }
-          }
-          &.my {
-            .item {
-              margin: 0 0 0 auto;
-              span:first-child {
-                font-size: 83.33%;
-                margin-right: 0.83rem;
-                color: #ccc;
-              }
-              span:last-child {
-                color: #BD00FF;
-              }
-            }
-          }
-        }
-      }
     }
     > .footer {
       border-top: solid 1px #ccc;

@@ -1,0 +1,34 @@
+.chat-list {
+  padding: 1.16rem;
+}
+.chat-list > div {
+  display: flex;
+}
+.chat-list > div.system span {
+  color: #ccc;
+  margin: auto;
+}
+.chat-list > div.enemy .item span:first-child {
+  font-weight: bold;
+  line-height: 2rem;
+  color: #369fff;
+  display: block;
+}
+.chat-list > div.enemy .item span:last-child {
+  font-size: 83.33%;
+  margin-left: 0.83rem;
+  color: #ccc;
+}
+.chat-list > div.my .item {
+  margin: 0 0 0 auto;
+}
+.chat-list > div.my .item span:first-child {
+  font-size: 83.33%;
+  margin-right: 0.83rem;
+  color: #ccc;
+}
+.chat-list > div.my .item span:last-child {
+  color: #BD00FF;
+}
+
+/*# sourceMappingURL=ChatList.css.map */

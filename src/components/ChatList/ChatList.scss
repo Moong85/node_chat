@@ -1,0 +1,40 @@
+.chat-list {
+  padding: 1.16rem;
+  > div {
+    display: flex;
+    &.system {
+      span {
+        color: #ccc;
+        margin: auto;
+      }
+    }
+    &.enemy {
+      .item {
+        span:first-child {
+          font-weight: bold;
+          line-height: 2rem;
+          color: #369fff;
+          display: block;
+        }
+        span:last-child {
+          font-size: 83.33%;
+          margin-left: 0.83rem;
+          color: #ccc;
+        }
+      }
+    }
+    &.my {
+      .item {
+        margin: 0 0 0 auto;
+        span:first-child {
+          font-size: 83.33%;
+          margin-right: 0.83rem;
+          color: #ccc;
+        }
+        span:last-child {
+          color: #BD00FF;
+        }
+      }
+    }
+  }
+}

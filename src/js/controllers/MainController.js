@@ -1,17 +1,5 @@
 const io = require("socket.io-client");
 
-class ChatList {
-    constructor( root ) {
-        this.root = root;
-    }
-    add( type ) {
-
-    }
-    createTemplate() {
-
-    }
-}
-
 export class MainController {
     constructor( connectIP ) {
         this.socket = io(connectIP);

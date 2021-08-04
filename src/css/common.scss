@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "main";
+@import "intro";
+@import "../components/Menu/Menu";
+@import "../components/ChatList/ChatList";
 html {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
@@ -27,6 +31,9 @@ span {
   height: 0.33rem;
   background: #369fff;
   margin: 0.83rem auto;
+  &.white {
+    background: #fff;
+  }
 }
 i {
   &.icon {

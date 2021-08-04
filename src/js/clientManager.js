@@ -1,5 +1,5 @@
 import {AppInfos} from "./common";
-import {Menu} from "./components/Menu";
+import {Menu} from "../components/Menu/Menu";
 import {MainController} from "./controllers/MainController";
 import {LoginController} from "./controllers/LoginController";
 
@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Menu Settings
     const menu = new Menu( document.querySelector("body > div.menu") );
     menu.create({
+        makeChat: {
+          text: "Make.Chat",
+          on: {
+              click: () => {
+
+              }
+          }
+        },
         logout: {
             text: "Logout",
             on: {
@@ -30,5 +38,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // test
-    AppInfos.PAGES.INTRO.classList.add("close");
+    //AppInfos.PAGES.INTRO.classList.add("close");
 });
