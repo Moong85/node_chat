@@ -16,7 +16,7 @@ export class ChatList {
             chatItem.querySelector("span.message").innerHTML = data.message;
         }
         if ( chatItem.querySelector("span.time") !== null ) {
-            chatItem.querySelector("span.time").innerHTML = String(new Date("HH:mm"));
+            chatItem.querySelector("span.time").innerHTML = new Date().format("hh:mm");
         }
         this.root.append(chatItem);
     }
@@ -26,7 +26,8 @@ export class ChatList {
             template.classList.add(type);
             if ( type === ChatList.ITEM_TEMPLATE.ENEMY ) {
                 const profile = document.createElement("i");
-                profile.classList.add("icon profile");
+                profile.classList.add("icon");
+                profile.classList.add("profile");
                 template.append( profile );
             }
             const item = document.createElement("div");

@@ -1,6 +1,5 @@
 import {AppInfos} from "./common";
 import {Menu} from "../components/Menu/Menu";
-import {MainController} from "./controllers/MainController";
 import {LoginController} from "./controllers/LoginController";
 
 document.addEventListener("DOMContentLoaded", function () {

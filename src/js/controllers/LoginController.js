@@ -33,10 +33,10 @@ export class LoginController {
             this.textErrorScreen.style.display = "block";
             return false;
         } else {
+            AppInfos.WEB_DATAS.socketServer = new MainController("ws://127.0.0.1:3000");
             AppInfos.PAGES.INTRO.classList.add("close");
             this.disabled = true;
             this.inputUserName.disabled = true;
-            AppInfos.WEB_DATAS.socketServer = new MainController("ws://127.0.0.1:3000");
             AppInfos.WEB_DATAS.socketServer.login( this.inputUserName.value );
         }
     }

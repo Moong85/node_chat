@@ -12,28 +12,33 @@ const session = require("express-session")({
     resave: true,
     saveUninitialized: true
 });
-const sharedsession = require("express-socket.io-session");
+const sharedSession = require("express-socket.io-session");
 
-io.use(sharedsession(session));
+io.use(sharedSession(session));
 
 const connectionUserInfo = {};
+const rooms = [];
+rooms.push("master");
 
 io.on("connection", socket => {
     // either with send()
     socket.send("Welcome to the ChatTest!");
 
     // handle the event sent with socket.send()
-    socket.on("message", (data) => {
-        console.log("message -> " + data);
+    socket.on("chat", ( data ) => {
+        console.log(data.name + ": " + data.message);
+        io.sockets.in(rooms[0]).emit("chat", data);
     });
 
     socket.on("login", ( userData ) => {
+        console.log( userData );
         connectionUserInfo[ userData.name ] = userData;
         const user = connectionUserInfo[ userData.name ];
-        socket.emit("message","Hello! " + user.name);
-        socket.emit("joinUs", {
+        socket.join(rooms[0]);
+        io.sockets.in(rooms[0]).emit("joinUs",{
             message: user.name + "님이 접속하셨습니다."
         });
+        socket.emit("server","Hello! " + user.name);
         console.log( connectionUserInfo );
     });
 });
