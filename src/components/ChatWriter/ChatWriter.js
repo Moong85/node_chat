@@ -14,6 +14,7 @@ export class ChatWriter {
         });
 
         this.send.addEventListener("click", function () {
+            if ( _this.message.value === "" ) return;
             fn_chatAction( _this.message.value );
             _this.message.value = "";
         });

@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 section.main-container {
   width: 100%;
-  height: 100%;
   transition: width ease 0.5s;
-}
-section.main-container > .contents {
-  height: calc(100vh - 3.66rem);
 }
 section.main-container > .footer {
   border-top: solid 1px #ccc;
   padding: 0.833rem;
   display: flex;
+  position: fixed;
+  box-sizing: border-box;
+  width: 100vw;
+  bottom: 0;
 }
 section.main-container > .footer label {
   width: calc(100% - 10em);

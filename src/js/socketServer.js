@@ -1,7 +1,7 @@
 const httpServer = require("http").createServer();
 const io = require("socket.io")(httpServer, {
     cors: {
-        origin: "http://localhost:8080",
+        origin: ["http://localhost:8080","http://182.229.104.64:8080"],
         methods: ["GET", "POST"],
         allowedHeaders: ["my-custom-header"],
         credentials: true
@@ -26,7 +26,7 @@ io.on("connection", socket => {
 
     // handle the event sent with socket.send()
     socket.on("chat", ( data ) => {
-        console.log(data.name + ": " + data.message);
+        console.log(data.user_name + ": " + data.message);
         io.sockets.in(rooms[0]).emit("chat", data);
     });
 
