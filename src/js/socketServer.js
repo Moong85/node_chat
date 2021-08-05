@@ -31,15 +31,23 @@ io.on("connection", socket => {
     });
 
     socket.on("login", ( userData ) => {
-        console.log( userData );
-        connectionUserInfo[ userData.name ] = userData;
-        const user = connectionUserInfo[ userData.name ];
+        console.log( "new User Join > " + userData.name + " - " + socket.id );
+        userData.id = socket.id;
+        connectionUserInfo[ socket.id ] = userData;
+        const user = connectionUserInfo[ socket.id ];
         socket.join(rooms[0]);
         io.sockets.in(rooms[0]).emit("joinUs",{
             message: user.name + "님이 접속하셨습니다."
         });
-        socket.emit("server","Hello! " + user.name);
-        console.log( connectionUserInfo );
+        socket.emit("server", {
+            msg: "room join ok. user Information",
+            loginData: user
+        });
+    });
+    socket.on('disconnect', () => {
+        io.sockets.in(rooms[0]).emit("joinUs",{
+            message: connectionUserInfo[ socket.id ].name + "님이 나가셨습니다."
+        });
     });
 });
 

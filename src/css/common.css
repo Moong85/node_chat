@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 section.main-container {
   width: 100%;
+  height: calc(100vh - 3.85rem);
+  overflow: auto;
   transition: width ease 0.5s;
 }
 section.main-container > .footer {
@@ -11,6 +13,7 @@ section.main-container > .footer {
   box-sizing: border-box;
   width: 100vw;
   bottom: 0;
+  background: #fff;
 }
 section.main-container > .footer label {
   width: calc(100% - 10em);
@@ -25,7 +28,6 @@ section.main-container > .footer label input {
 
 body, html, section.intro-container {
   width: 100%;
-  height: 100%;
 }
 
 section.intro-container {
@@ -33,6 +35,8 @@ section.intro-container {
   background: #fff;
   z-index: 100;
   transition: opacity ease 1s;
+  height: 100%;
+  position: fixed;
 }
 section.intro-container.close {
   opacity: 0;
@@ -186,6 +190,7 @@ section.intro-container .contents .question button {
 }
 .chat-list > div {
   display: flex;
+  margin: 1rem 0;
 }
 .chat-list > div.system span {
   color: #ccc;
@@ -257,7 +262,6 @@ i.icon.profile {
 section {
   top: 0;
   left: 0;
-  position: fixed;
 }
 
 input {

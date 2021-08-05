@@ -24,9 +24,17 @@ export class MainController {
                     user_name: my.user_name,
                     message: message
                 });
+                this.mainContaier.root.scrollTop = this.mainContaier.root.scrollHeight;
             }
         );
         this.socket.on("server", data => {
+            if ( data.loginData !== undefined ) {
+                my.user_name = data.loginData.name;
+                my.id = data.loginData.id;
+                const date = new Date();
+                date.setTime(date.getTime() + 60 * 60 * 24 * 1000);
+                document.cookie = "id=" + my.id + ";expires=" + date.toUTCString() + ';path=/';
+            }
             console.log( data );
         });
         this.socket.on("chat", data => {

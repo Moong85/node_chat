@@ -1,6 +1,8 @@
 section {
   &.main-container {
     width: 100%;
+    height: calc(100vh - 3.85rem);
+    overflow: auto;
     transition: width ease .5s;
     > .contents {
     }
@@ -12,6 +14,7 @@ section {
       box-sizing: border-box;
       width: 100vw;
       bottom: 0;
+      background: #fff;
       label {
         width: calc(100% - 10em);
         margin: 0 auto 0 1em;
