@@ -29,8 +29,11 @@ io.on("connection", socket => {
 
     socket.on("login", ( userData ) => {
         connectionUserInfo[ userData.name ] = userData;
-        socket.emit("message","Hello! " + connectionUserInfo[userData.name].name);
-        socket.emit("joinUs", connectionUserInfo[userData.name].name + "님이 접속하셨습니다.");
+        const user = connectionUserInfo[ userData.name ];
+        socket.emit("message","Hello! " + user.name);
+        socket.emit("joinUs", {
+            message: user.name + "님이 접속하셨습니다."
+        });
         console.log( connectionUserInfo );
     });
 });
