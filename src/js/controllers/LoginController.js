@@ -24,6 +24,10 @@ export class LoginController {
                 this.logout();
             });
         }
+        const cookie = document.cookie.split("=")[1];
+        if ( cookie ) {
+            this.initSocket( cookie );
+        }
     }
 
     login () {
@@ -33,16 +37,37 @@ export class LoginController {
             this.textErrorScreen.style.display = "block";
             return false;
         } else {
-            AppInfos.WEB_DATAS.socketServer = new MainController("ws://182.229.104.64:3000");
-            AppInfos.PAGES.INTRO.classList.add("close");
-            this.disabled = true;
+            this.initSocket();
             this.inputUserName.disabled = true;
-            AppInfos.WEB_DATAS.socketServer.login( this.inputUserName.value );
+        }
+    }
+
+    initSocket ( cookie ) {
+        AppInfos.WEB_DATAS.socketServer = new MainController("ws://182.229.104.64:3000");
+        if ( cookie ) {
+            AppInfos.WEB_DATAS.socketServer.socket.emit("checkSession", cookie);
+            AppInfos.WEB_DATAS.socketServer.socket.on("checkSession", result => {
+                if ( result.userInfo ) {
+                    AppInfos.MY_DATA.id = result.userInfo.id;
+                    AppInfos.MY_DATA.user_name = result.userInfo.user_name;
+                    AppInfos.WEB_DATAS.socketServer.login( AppInfos.MY_DATA );
+                    AppInfos.PAGES.INTRO.classList.add("close");
+                } else {
+                    console.warn(result.msg);
+                }
+            });
+        } else {
+            AppInfos.WEB_DATAS.socketServer.login( {
+                user_name: this.inputUserName.value
+            });
+            AppInfos.PAGES.INTRO.classList.add("close");
         }
     }
 
     logout () {
-        //TODO: Logout Actions
-        console.log("logout!!");
+        AppInfos.WEB_DATAS.socketServer.socket.emit("logout", AppInfos.MY_DATA.id);
+        document.cookie = "id=" + AppInfos.MY_DATA.id + ";expires=" + new Date().toUTCString() + ';path=/';
+        AppInfos.PAGES.INTRO.classList.remove("close");
+        this.inputUserName.disabled = false;
     }
 }
