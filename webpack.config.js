@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
+const process = require("process");
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -57,11 +58,11 @@ module.exports = {
         //     // Author: ${ childProcess.execSync("git config user.name") }
         // }),
         new webpack.DefinePlugin({
-            // CONTEXT_PATH: process.env.NODE_ENV === "development" ?
-            //     JSON.stringify("http://dev.unimewo.com:6780") :
-            //     JSON.stringify("https://gooodcare.com")
-            // DF_IP_DEV: JSON.stringify("127.0.0.1"),
-            // DF_IP_PRD: JSON.stringify("127.0.0.1"),
+            SERVER_IP: process.env.NODE_ENV === "development" ?
+                JSON.stringify("localhost") :
+                JSON.stringify("182.229.104.64"),
+            SOCKET_PORT: "3000",
+            WEB_PORT: "8080"
         }),
         new HtmlWebpackPlugin({
             template: "./index.html",

@@ -4,6 +4,26 @@ export class AppInfos {
     static WEB_DATAS = {};
 
     static MY_DATA = {};
+
+    static SOCKET = {
+        EV: {
+            CONNECT: "connect",
+            CHAT: "chat",
+            SESSTION: "checkSession",
+            LOGIN: {
+                CODE: "login",
+                JOIN: {
+                    CODE: "join",
+                    REJOIN: "reJoin",
+                },
+                TIMEOUT: "timeout"
+            },
+            LOGOUT: "logout",
+            DISCONNECTION: "disconnection",
+            SERVER_MASSAGE: "server",
+
+        }
+    };
 }
 
 // Else Common

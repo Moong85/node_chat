@@ -4,6 +4,7 @@ export class ChatList {
         MY: "my",
         SYSTEM: "system"
     }
+    #chatAudio = new Audio("/src/audio/chat.mp3")
     constructor( root ) {
         this.root = root;
     }
@@ -18,6 +19,9 @@ export class ChatList {
         if ( chatItem.querySelector("span.time") !== null ) {
             chatItem.querySelector("span.time").innerHTML = new Date().format("hh:mm");
         }
+        this.#chatAudio.play().then( result => {
+            console.log( result );
+        });
         this.root.append(chatItem);
     }
     createTemplate( type ) {

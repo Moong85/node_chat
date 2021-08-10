@@ -43,10 +43,11 @@ export class LoginController {
     }
 
     initSocket ( cookie ) {
-        AppInfos.WEB_DATAS.socketServer = new MainController("ws://182.229.104.64:3000");
+        AppInfos.WEB_DATAS.socketServer = new MainController("ws://" + SERVER_IP + ":" + SOCKET_PORT);
         if ( cookie ) {
-            AppInfos.WEB_DATAS.socketServer.socket.emit("checkSession", cookie);
-            AppInfos.WEB_DATAS.socketServer.socket.on("checkSession", result => {
+            console.log( cookie );
+            AppInfos.WEB_DATAS.socketServer.socket.emit(AppInfos.SOCKET.EV.SESSTION, cookie);
+            AppInfos.WEB_DATAS.socketServer.socket.on(AppInfos.SOCKET.EV.SESSTION, result => {
                 if ( result.userInfo ) {
                     AppInfos.MY_DATA.id = result.userInfo.id;
                     AppInfos.MY_DATA.user_name = result.userInfo.user_name;
@@ -65,7 +66,7 @@ export class LoginController {
     }
 
     logout () {
-        AppInfos.WEB_DATAS.socketServer.socket.emit("logout", AppInfos.MY_DATA.id);
+        AppInfos.WEB_DATAS.socketServer.socket.emit(AppInfos.SOCKET.EV.LOGOUT, AppInfos.MY_DATA.id);
         document.cookie = "id=" + AppInfos.MY_DATA.id + ";expires=" + new Date().toUTCString() + ';path=/';
         AppInfos.PAGES.INTRO.classList.remove("close");
         this.inputUserName.disabled = false;
