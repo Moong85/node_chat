@@ -45,7 +45,6 @@ export class MainController {
             new Notification("새로운 유저가 입장했습니다.", {body: data.message});
         });
         this.socket.on(AppInfos.SOCKET.EV.LOGIN.JOIN.REJOIN, data => {
-            console.log( data );
             this.mainContaier.chatList.addMessage(ChatList.ITEM_TEMPLATE.SYSTEM, data);
             new Notification( data.user + "님이 재입장했습니다.", {body: data.message});
         });

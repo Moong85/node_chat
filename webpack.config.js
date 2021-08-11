@@ -5,6 +5,23 @@ const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
 const process = require("process");
+const { networkInterfaces } = require('os');
+
+const nets = networkInterfaces();
+const ipGroup = {};
+
+for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+        if (net.family === 'IPv4' && !net.internal) {
+            if (!ipGroup[name]) {
+                ipGroup[name] = [];
+            }
+            ipGroup[name].push(net.address);
+        }
+    }
+}
+
+console.log("network IPs -> ", ipGroup, ipGroup[Object.keys(ipGroup)[0]][0]);
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -59,7 +76,7 @@ module.exports = {
         // }),
         new webpack.DefinePlugin({
             SERVER_IP: process.env.NODE_ENV === "development" ?
-                JSON.stringify("localhost") :
+                JSON.stringify(ipGroup[Object.keys(ipGroup)[0]][0]) :
                 JSON.stringify("182.229.104.64"),
             SOCKET_PORT: "3000",
             WEB_PORT: "8080"

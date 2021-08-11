@@ -1,3 +1,5 @@
+import {AppInfos} from "../../js/common";
+
 export class ChatList {
     static ITEM_TEMPLATE = {
         ENEMY: "enemy",
@@ -19,9 +21,9 @@ export class ChatList {
         if ( chatItem.querySelector("span.time") !== null ) {
             chatItem.querySelector("span.time").innerHTML = new Date().format("hh:mm");
         }
-        this.#chatAudio.play().then( result => {
-            console.log( result );
-        });
+        if ( !AppInfos.MY_DATA.SHOW_STATE && type === ChatList.ITEM_TEMPLATE.ENEMY ) {
+            this.#chatAudio.play().then( result => {});
+        }
         this.root.append(chatItem);
     }
     createTemplate( type ) {

@@ -21,7 +21,7 @@ export class AppInfos {
             LOGOUT: "logout",
             DISCONNECTION: "disconnection",
             SERVER_MASSAGE: "server",
-
+            SHOW_STATE: true
         }
     };
 }

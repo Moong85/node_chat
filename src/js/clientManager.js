@@ -43,8 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-        console.log("hidden");
+        AppInfos.MY_DATA.SHOW_STATE = false;
     } else  {
-        console.log("show");
+        AppInfos.MY_DATA.SHOW_STATE = true;
     }
+    console.log( "SHOW_STATE > ", AppInfos.MY_DATA.SHOW_STATE );
 })
